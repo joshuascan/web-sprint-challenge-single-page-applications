@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Route, Link, Switch } from 'react-router-dom'
 
 import Home from './components/Home'
-import PizzaForm from './components/PizzaForm'
+import Form from './components/Form'
 
 const initialOrders = []
 
@@ -22,7 +22,6 @@ const initialFormValues = {
 const initialFormErrors = {
     name: '',
     size: '',
-    special: ''
 }
 
 const initialDisabled = true
@@ -78,9 +77,9 @@ const App = () => {
         </nav>
 
         <Switch>
-            <Route path='/' component={Home} />
+            <Route exact path='/' component={Home} />
             <Route path='/pizza'>
-                <PizzaForm 
+                <Form 
                     values={formValues}
                     errors={formErrors}
                     disabled={disabled}
