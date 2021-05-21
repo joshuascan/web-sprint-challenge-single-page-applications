@@ -97,11 +97,98 @@ img {
     max-width: 90%;
     border: 12px solid rgb(148, 27, 18);
     border-radius: 8px;
-    /* box-shadow: 0px 0px 15px 10px rgb(121, 22, 15); */
+    box-shadow: 0px 0px 5px 0px rgb(121, 22, 15);
 }
 
 .home-wrapper button {
     font-size: 2.4rem;
     padding: 1%;
+    margin: 4%;
+}
+
+/* Order Form */
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-between;
+    font-size: 1.6rem;
+}
+
+label {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 0.5%;
+}
+
+.toppings {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    margin: 2%;
+}
+
+.inputs h3 {
+    margin-top: 2%;
+    text-decoration: underline;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 2% 0;
+    background-color: rgb(148, 27, 18);
+    border: 12px solid rgb(148, 27, 18);
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px 10px rgb(121, 22, 15);
+}
+
+form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#order-button {
+    font-size: 1.8rem;
+    padding: 1%;
+    margin: 4%;
+}
+
+.errors {
+    color: rgb(255, 251, 13);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+button:disabled {
+    background-color: grey;
+    color: darkgray;
+    cursor: not-allowed;
+}
+
+/* Confirmation Page */
+
+.confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.confirmation h2 {
+    text-align: center;
+    font-size: 4rem;
+    font-style: italic;
+    width: 50%;
+}
+
+.confirmation img {
     margin: 4%;
 }
