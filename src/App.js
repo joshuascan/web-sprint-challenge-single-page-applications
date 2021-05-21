@@ -4,6 +4,7 @@ import { Route, Link, Switch } from 'react-router-dom'
 
 import Home from './components/Home'
 import Form from './components/Form'
+import Confirmation from './components/Confirmation'
 
 const initialOrders = []
 
@@ -37,6 +38,7 @@ const App = () => {
         axios.post('https://reqres.in/api/orders', newOrder)
             .then(res => {
                 setOrders([res.data, ...orders])
+                console.log(res.data)
             })
             .catch(err => {
                 console.log(err)
@@ -65,6 +67,7 @@ const App = () => {
             roastedRedPeppers: formValues.roastedRedPeppers,
         }
         postNewOrder(newOrder)
+        console.log(newOrder);
     }
 
     // useEffect schema
@@ -87,6 +90,7 @@ const App = () => {
                     submit={formSubmit}
                 />
             </Route>
+            <Route path='/confirmation' component={Confirmation} />
         </Switch>
     </div>
   );

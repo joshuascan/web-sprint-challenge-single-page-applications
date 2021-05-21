@@ -7,7 +7,7 @@ function Form(props) {
     const history = useHistory()
 
     const onSubmit = () => {
-        history.push()  // Possible error
+        history.push('/confirmation')
         submit()
     }
 
@@ -110,7 +110,7 @@ function Form(props) {
             </label>
 
             <div className='submit'>
-                <button disabled={disabled}>Place Order</button>
+                <button disabled={disabled} id='order-button'>Place Order</button>
 
                 <div className='errors'>
                     <div>{errors.name}</div>
