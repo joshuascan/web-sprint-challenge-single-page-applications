@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Route, Link, Switch } from 'react-router-dom'
 import * as yup from 'yup'
+import schema from './validation/formSchema'
 
 import Home from './components/Home'
 import Form from './components/Form'
@@ -35,6 +36,17 @@ const App = () => {
     const [formErrors, setFormErrors] = useState(initialFormErrors)
     const [disabled, setDisabled] = useState(initialDisabled)
 
+    // const getOrders = () => {
+    //     axios.get('https://reqres.in/api/orders')
+    //         .then(res => {
+    //             setOrders(res.data)
+    //             console.log(res.data)
+    //         })
+    //         .catch(err => {
+    //             console.log(err)
+    //         })
+    // }
+
     const postNewOrder = newOrder => {
         axios.post('https://reqres.in/api/orders', newOrder)
             .then(res => {
@@ -48,10 +60,15 @@ const App = () => {
             })
     }
 
-    // validate function
+    const validate = (name, value) => {
+        yup.reach(schema, name)
+            .validate(value)
+            .then(() => setFormErrors({...formErrors, [name]: ''}))
+            .catch(err => setFormErrors({...formErrors, [name]: err.errors[0]}))
+    }
 
     const inputChange = (name, value) => {
-        // validate
+        validate(name, value)
         setFormValues({...formValues, [name]: value})
     }
 
@@ -65,12 +82,19 @@ const App = () => {
             onions: formValues.onions,
             choppedGarlic: formValues.choppedGarlic,
             roastedRedPeppers: formValues.roastedRedPeppers,
+            special: formValues.special.trim()
         }
         postNewOrder(newOrder)
-        console.log(newOrder)
     }
 
     // useEffect schema
+    // useEffect(() => {
+    //     getOrders()
+    // }, [])
+
+    useEffect(() => {
+        schema.isValid(formValues).then(valid => setDisabled(!valid))
+    }, [formValues])
 
   return (
     <div className='app'>

@@ -44,6 +44,7 @@ function Form(props) {
             </label>
 
             <div className='toppings'>
+                <h3>Toppings</h3>
                 <label>Pepperoni
                     <input
                     type='checkbox'
