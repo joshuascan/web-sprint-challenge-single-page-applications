@@ -47,6 +47,29 @@ const App = () => {
             })
     }
 
+    // validate function
+
+    const inputChange = (name, value) => {
+        // validate
+        setFormValues({...formValues, [name]: value})
+    }
+
+    const formSubmit = () => {
+        const newOrder = {
+            name: formValues.name.trim(),
+            size: formValues.size,
+            pepperoni: formValues.pepperoni,
+            sausage: formValues.sausage,
+            fetaCheese: formValues.fetaCheese,
+            onions: formValues.onions,
+            choppedGarlic: formValues.choppedGarlic,
+            roastedRedPeppers: formValues.roastedRedPeppers,
+        }
+        postNewOrder(newOrder)
+    }
+
+    // useEffect schema
+
   return (
     <div className='app'>
         <nav>
