@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Route, Link, Switch } from 'react-router-dom'
+import * as yup from 'yup'
 
 import Home from './components/Home'
 import Form from './components/Form'
@@ -38,7 +39,6 @@ const App = () => {
         axios.post('https://reqres.in/api/orders', newOrder)
             .then(res => {
                 setOrders([res.data, ...orders])
-                console.log(res.data)
             })
             .catch(err => {
                 console.log(err)
@@ -67,7 +67,7 @@ const App = () => {
             roastedRedPeppers: formValues.roastedRedPeppers,
         }
         postNewOrder(newOrder)
-        console.log(newOrder);
+        console.log(newOrder)
     }
 
     // useEffect schema
