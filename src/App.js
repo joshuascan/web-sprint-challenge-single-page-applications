@@ -79,7 +79,15 @@ const App = () => {
 
         <Switch>
             <Route path='/' component={Home} />
-            <Route path='/pizza' component={PizzaForm}/>
+            <Route path='/pizza'>
+                <PizzaForm 
+                    values={formValues}
+                    errors={formErrors}
+                    disabled={disabled}
+                    change={inputChange}
+                    submit={formSubmit}
+                />
+            </Route>
         </Switch>
     </div>
   );
