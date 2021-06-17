@@ -51,6 +51,7 @@ const App = () => {
         axios.post('https://reqres.in/api/orders', newOrder)
             .then(res => {
                 setOrders([res.data, ...orders])
+                console.log(res.data)
             })
             .catch(err => {
                 console.log(err)
